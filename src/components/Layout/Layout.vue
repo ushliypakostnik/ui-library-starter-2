@@ -11,15 +11,28 @@
 </template>
 
 <script>
-import { defineComponent, computed } from 'vue';
-import { useStore } from 'vuex';
-import { key } from '@/store';
+import { defineComponent /*, computed */ } from 'vue';
+// import { useStore } from '../../store';
 
 export default defineComponent({
   name: 'Layout',
 
+  computed: {
+    isMenuOpen() {
+      return this.$store.getters['layout/isMenuOpen'];
+    },
+  },
+
+  methods: {
+    toggle() {
+      this.$store.dispatch('layout/setMenu', !this.isMenuOpen);
+    },
+  },
+
+  /*
   setup() {
-    const store = useStore(key);
+    const store = useStore();
+    console.log('Library Layout store: ', store);
 
     let toggle;
     const isMenuOpen = computed(() => store.getters['layout/isMenuOpen']);
@@ -32,7 +45,7 @@ export default defineComponent({
       isMenuOpen,
       toggle,
     };
-  },
+  }, */
 });
 </script>
 

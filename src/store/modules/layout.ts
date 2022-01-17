@@ -1,7 +1,7 @@
 import { Module } from 'vuex';
 
 // Types
-import { IStore, ILayout } from '@/models/store';
+import { IStore, ILayout } from '../../models/store';
 
 const initialState: ILayout = {
   isMenuOpen: true,

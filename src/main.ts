@@ -1,7 +1,7 @@
 import { App } from 'vue';
-// import { createApp } from 'vue';
-// import { store, key } from './store';
-// import App from './App.vue';
+import { createApp } from 'vue';
+import store, { key } from './store';
+import Application from './Application.vue';
 
 import * as components from './components';
 
@@ -17,15 +17,14 @@ const ComponentLibrary = {
   },
 };
 
-declare global {
-  interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    Vue?: any;
-  }
+// ATTENTION! Set to true if you want
+// to develop a module (not documentation)
+// and false before publishing for use in projects
+// or develop documentation!
+const isDevelopmentModuleMode = true;
+if (isDevelopmentModuleMode) {
+  console.log('Start development module!');
+  createApp(Application).use(store, key).mount('#app');
 }
 
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(ComponentLibrary);
-}
-
-// createApp(App).use(store, key).mount('#app');
+export default ComponentLibrary;

@@ -8,7 +8,7 @@ import { defineComponent } from 'vue';
 import Layout from '@/components/Layout/Layout.vue';
 
 export default defineComponent({
-  name: 'App',
+  name: 'Application',
 
   components: {
     Layout,
