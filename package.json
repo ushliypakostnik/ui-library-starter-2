@@ -1,7 +1,7 @@
 {
   "name": "ui-library-starter-2",
   "description": "UI Library Starter 2",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "main": "dist/ui-library-starter-2.umd.min.js",
   "unpkg": "dist/ui-library-starter-2.min.js",
