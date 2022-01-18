@@ -15,3 +15,15 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="stylus">
+:root
+  scroll-behavior smooth
+
+body
+  font-family "Ubuntu", sans-serif
+  -moz-osx-font-smoothing grayscale
+  -webkit-font-smoothing antialiased
+  text-rendering: optimizeSpeed
+  overflow-x hidden
+</style>

@@ -39,34 +39,233 @@
 </code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><p>Обратите внимание на имя проекта в конце длинной команды деплоя <code class="nowrap">build</code>!</p>
 <h3 id="documentation-config" tabindex="-1"><a class="header-anchor" href="#documentation-config" aria-hidden="true">#</a> Documentation config</h3>
 <p>Перейдите к документации на VuePress и сконфигурируйте ее под себя <code class="nowrap">@/docs/.vuepress/config.js</code>:</p>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
-  <span class="token literal-property property">lang</span><span class="token operator">:</span> <span class="token string">'en-US'</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'UI Library Starter 2'</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">'Vue Component UI Library Starter 2'</span><span class="token punctuation">,</span>
+<h3 id="connecting-fonts" tabindex="-1"><a class="header-anchor" href="#connecting-fonts" aria-hidden="true">#</a> Connecting fonts</h3>
+<p>Исходный проект библиотеки использует шрифт Ubuntu и вам необходимо подключить шрифт который диктует ваше руководство по стилю. Предположим, это Open Sans и у вас есть его веб-фонт.</p>
+<p>Перепишите имя шрифта и переменные начертаний если требуется в файле <code class="nowrap">~/src/stylus/utils/_typography.styl</code>:</p>
+<div class="language-stylus ext-styl line-numbers-mode"><pre v-pre class="language-stylus"><code><span class="token variable-declaration"><span class="token variable">$font-family</span> <span class="token operator">=</span> <span class="token string">"Open Sans"</span></span>
 
-  <span class="token literal-property property">theme</span><span class="token operator">:</span> <span class="token string">'@vuepress/theme-default'</span><span class="token punctuation">,</span>
+<span class="token variable-declaration"><span class="token variable">$font-weight</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  regular<span class="token punctuation">:</span> <span class="token number">400</span><span class="token punctuation">,</span>
+  bold<span class="token punctuation">:</span> <span class="token number">700</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></span>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>Поместите папку с правильным шрифтом рядом с папкой <code class="nowrap">/Ubuntu</code> в <code class="nowrap">@/src/static/fonts/</code>.</p>
+<p>Пропишите правильные импорты и пути в файле препроцессора для типографики <code class="nowrap">~/src/stylus/utils/_typography.styl</code>:</p>
+<div class="language-stylus ext-styl line-numbers-mode"><pre v-pre class="language-stylus"><code><span class="token comment">// Import fonts</span>
+<span class="token comment">//////////////////////////////////////////////////////</span>
+
+<span class="token atrule-declaration"><span class="token atrule">@font-face</span></span>
+  <span class="token property-declaration"><span class="token property">font-family</span> $font-family</span>
+  <span class="token property-declaration"><span class="token property">src</span> <span class="token url">url("../../static/fonts/OpenSans/OpenSans-Regular.eot")</span></span>
+  src <span class="token func"><span class="token function">local</span><span class="token punctuation">(</span><span class="token string">"OpenSans Regular"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> local<span class="token punctuation">(</span><span class="token string">"OpenSans-Regular"</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+    <span class="token func"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"../../static/fonts/OpenSans/OpenSans-Regular.eot?#iefix"</span><span class="token punctuation">)</span> format<span class="token punctuation">(</span><span class="token string">"embedded-opentype"</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+    <span class="token func"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"../../static/fonts/OpenSans/OpenSans-Regular.woff2"</span><span class="token punctuation">)</span> format<span class="token punctuation">(</span><span class="token string">"woff2"</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+    <span class="token func"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"../../static/fonts/OpenSans/OpenSans-Regular.woff"</span><span class="token punctuation">)</span> format<span class="token punctuation">(</span><span class="token string">"woff"</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+    <span class="token func"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"../../static/fonts/OpenSans/OpenSans-Regular.ttf"</span><span class="token punctuation">)</span> format<span class="token punctuation">(</span><span class="token string">"truetype"</span><span class="token punctuation">)</span></span>
+  <span class="token property-declaration"><span class="token property">font-weight</span> $font-weight.regular</span>
+  <span class="token property-declaration"><span class="token property">font-style</span> normal</span>
+
+<span class="token atrule-declaration"><span class="token atrule">@font-face</span></span>
+  <span class="token property-declaration"><span class="token property">font-family</span> $font-family</span>
+  <span class="token property-declaration"><span class="token property">src</span> <span class="token url">url("../../static/fonts/OpenSans/OpenSans-Bold.eot")</span></span>
+  src <span class="token func"><span class="token function">local</span><span class="token punctuation">(</span><span class="token string">"OpenSans Bold"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> local<span class="token punctuation">(</span><span class="token string">"OpenSans-Bold"</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+    <span class="token func"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"../../static/fonts/OpenSans/OpenSans-Bold.eot?#iefix"</span><span class="token punctuation">)</span> format<span class="token punctuation">(</span><span class="token string">"embedded-opentype"</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+    <span class="token func"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"../../static/fonts/OpenSans/OpenSans-Bold.woff2"</span><span class="token punctuation">)</span> format<span class="token punctuation">(</span><span class="token string">"woff2"</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+    <span class="token func"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"../../static/fonts/OpenSans/OpenSans-Bold.woff"</span><span class="token punctuation">)</span> format<span class="token punctuation">(</span><span class="token string">"woff"</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span>
+    <span class="token func"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"../../static/fonts/OpenSans/OpenSans-Bold.ttf"</span><span class="token punctuation">)</span> format<span class="token punctuation">(</span><span class="token string">"truetype"</span><span class="token punctuation">)</span></span>
+  <span class="token property-declaration"><span class="token property">font-weight</span> $font-weight.bold</span>
+  <span class="token property-declaration"><span class="token property">font-style</span> normal</span>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>Поправтьте имя шрифта в таге <code>body</code> в секции стилей компонента для разработки <code class="nowrap">@/src/Development.vue</code>:</p>
+<div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code>...
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylus<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+<span class="token punctuation">:</span>root
+  scroll-behavior smooth
+
+body
+  font-family <span class="token string">"Open Sans"</span><span class="token punctuation">,</span> sans-serif
+  -moz-osx-font-smoothing grayscale
+  -webkit-font-smoothing antialiased
+  <span class="token property">text-rendering</span><span class="token punctuation">:</span> optimizeSpeed
+  overflow-x hidden
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>Удалите директорию со старым шрифтом <code class="nowrap">@/src/static/fonts/Ubuntu</code>.</p>
+<h3 id="сleaning-project" tabindex="-1"><a class="header-anchor" href="#сleaning-project" aria-hidden="true">#</a> Сleaning project</h3>
+<p>Если вы хотите получить полностью чистую документацию - произведите следующую очистку папок и файлов.</p>
+<p>Удалите все папки и файлы в <code class="nowrap">@/docs/</code> кроме директории <code class="nowrap">@/docs/.vuepress</code> и файла <code class="nowrap">@/docs/README.md</code>, который нужно оставить, но очистить:</p>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code># UI Library
+
+...
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>Вернитесь к конфигурации документации и отразите изменения в <code class="nowrap">@/docs/.vuepress/config.js</code>.</p>
+<h3 id="style-setting" tabindex="-1"><a class="header-anchor" href="#style-setting" aria-hidden="true">#</a> Style setting</h3>
+<p>Запустите разработку документации командой:</p>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>$ npm run docs:dev
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>Ознакомьтесь с разделом <a href="https://ui-library-starter-2.netlify.app/constants/stylebase.html" target="_blank" rel="noopener noreferrer">Constants<ExternalLinkIcon/></a> документации к исходному проекту.</p>
+<p>Вам необходимо настроить препроцессор вашей библиотеки в точном соответсвии с вашим руководством по фирменному стилю.</p>
+<h2 id="adding-a-component" tabindex="-1"><a class="header-anchor" href="#adding-a-component" aria-hidden="true">#</a> Adding a component</h2>
+<p>После того как стили библиотеки настроены вы можете добавлять свои специфические компоненты.</p>
+<p>Выберете имя для компонента в PascalCase стиле написания, предположим это <code class="nowrap">ComponentName</code>.</p>
+<p>Добавьте директорию <code class="nowrap">@/src/components/ComponentName</code>.</p>
+<p>Добавьте в нее индексный файл c импортом-экспортом:</p>
+<p><code class="nowrap">@/src/components/ComponentName/index.ts</code></p>
+<div class="language-typescript ext-ts line-numbers-mode"><pre v-pre class="language-typescript"><code><span class="token keyword">import</span> ComponentName <span class="token keyword">from</span> <span class="token string">'./ComponentName.vue'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> ComponentName<span class="token punctuation">;</span>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>И сам компонент:</p>
+<p><code class="nowrap">@/src/components/ComponentName/ComponentName.vue</code></p>
+<div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span>
+    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>component-name<span class="token punctuation">"</span></span>
+    <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{
+      <span class="token punctuation">'</span>.component-name__element--modifier1<span class="token punctuation">'</span>: prop1,
+      <span class="token punctuation">'</span>.component-name__element--modifier2<span class="token punctuation">'</span>: prop2,
+    }<span class="token punctuation">"</span></span>
+  <span class="token punctuation">></span></span>
+    This is test component!!!
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'ComponentName'</span><span class="token punctuation">,</span>
+
+  <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">prop1</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> Boolean<span class="token punctuation">,</span>
+      <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">prop2</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> Boolean<span class="token punctuation">,</span>
+      <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylus<span class="token punctuation">"</span></span> <span class="token attr-name">scoped</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"~/src/stylus/_stylebase.styl"</span><span class="token punctuation">;</span></span>
+
+.component-name
+  background $colors.primary // test styles
+  // add adaptive
+  +$<span class="token function">mobile</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    display block
+
+  &amp;__element
+    $<span class="token function">text</span><span class="token punctuation">(</span><span class="token string">"natasha"</span><span class="token punctuation">)</span> // add typography
+
+    &amp;--modifier1
+      color $colors.primary // add good color
+
+    &amp;--modifier2
+      color $colors.secondary
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br></div></div><p>Добавьте экспорт в индексный файл библиотеки <code class="nowrap">@/src/components/index.ts</code>:</p>
+<div class="language-typescript ext-ts line-numbers-mode"><pre v-pre class="language-typescript"><code><span class="token keyword">export</span> <span class="token punctuation">{</span> <span class="token keyword">default</span> <span class="token keyword">as</span> ComponentName <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./ComponentName'</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>Добавьте документацию компонента в файл <code class="nowrap">@/docs/components/component-name.md</code>:</p>
+<div class="language-markdown ext-md line-numbers-mode"><pre v-pre class="language-markdown"><code><span class="token title important"><span class="token punctuation">#</span> ComponentName</span>
+
+<span class="token title important"><span class="token punctuation">##</span> Description</span>
+
+This is new custom component.
+
+<span class="token title important"><span class="token punctuation">##</span> Connection</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ComponentName</span> <span class="token attr-name">prop1</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Boolean(required)<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+
+<span class="token title important"><span class="token punctuation">##</span> API</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Props</span>
+
+<span class="token table"><span class="token table-header-row"><span class="token punctuation">|</span><span class="token table-header important"> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Name</span><span class="token punctuation">**</span></span>  </span><span class="token punctuation">|</span><span class="token table-header important"> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Type</span><span class="token punctuation">**</span></span> </span><span class="token punctuation">|</span><span class="token table-header important"> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Description</span><span class="token punctuation">**</span></span> </span><span class="token punctuation">|</span><span class="token table-header important"> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Default</span><span class="token punctuation">**</span></span> </span><span class="token punctuation">|</span>
+</span><span class="token table-line"><span class="token punctuation">|</span> <span class="token punctuation">:--------</span> <span class="token punctuation">|</span> <span class="token punctuation">:-------</span> <span class="token punctuation">|</span> <span class="token punctuation">:--------------</span> <span class="token punctuation">|</span> <span class="token punctuation">----------:</span> <span class="token punctuation">|</span>
+</span><span class="token table-data-rows"><span class="token punctuation">|</span><span class="token table-data"> <span class="token bold"><span class="token punctuation">**</span><span class="token content">prop1</span><span class="token punctuation">**</span></span> </span><span class="token punctuation">|</span><span class="token table-data"> Boolean  </span><span class="token punctuation">|</span><span class="token table-data"> <span class="token list punctuation">-</span>               </span><span class="token punctuation">|</span><span class="token table-data">  (required) </span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token table-data"> <span class="token bold"><span class="token punctuation">**</span><span class="token content">prop2</span><span class="token punctuation">**</span></span> </span><span class="token punctuation">|</span><span class="token table-data"> Boolean  </span><span class="token punctuation">|</span><span class="token table-data"> <span class="token list punctuation">-</span>               </span><span class="token punctuation">|</span><span class="token table-data">     <span class="token code-snippet code keyword">`false`</span> </span><span class="token punctuation">|</span>
+</span></span>
+...
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>И далее - рендер-тест и исходный код по аналогии с другими файлами.</p>
+<p>Добавьте компонент в конфигурацию VuePress <code class="nowrap">@/docs/.vuepress/config.js</code>:</p>
+<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">themeConfig</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token literal-property property">repoLabel</span><span class="token operator">:</span> <span class="token string">'GitHub repo'</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">repo</span><span class="token operator">:</span> <span class="token string">'https://github.com/ushliypakostnik/ui-library-starter-2-test.git'</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">docsDir</span><span class="token operator">:</span> <span class="token string">'docs'</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">editLink</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">locales</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-      <span class="token string-property property">'/'</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token literal-property property">nav</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'NPM'</span><span class="token punctuation">,</span> <span class="token literal-property property">link</span><span class="token operator">:</span> <span class="token string">'https://www.npmjs.com/package/ui-library-starter-2-test'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        <span class="token literal-property property">sidebar</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token literal-property property">sidebar</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Components</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+        <span class="token literal-property property">collapsible</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">children</span><span class="token operator">:</span> <span class="token punctuation">[</span>
           <span class="token punctuation">{</span>
-            <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Intro</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
-            <span class="token comment">// collapsable: false,</span>
-            <span class="token literal-property property">children</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-              <span class="token string">'/'</span><span class="token punctuation">,</span>
-              <span class="token string">'start'</span><span class="token punctuation">,</span>
-              <span class="token string">'structure'</span><span class="token punctuation">,</span>
-              <span class="token string">'links'</span><span class="token punctuation">,</span>
-            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">ComponentName</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+            <span class="token literal-property property">link</span><span class="token operator">:</span> <span class="token string">'/components/component-name'</span><span class="token punctuation">,</span>
           <span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token punctuation">]</span><span class="token punctuation">,</span>
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div></template>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h2 id="using-third-party-modules" tabindex="-1"><a class="header-anchor" href="#using-third-party-modules" aria-hidden="true">#</a> Using third party modules</h2>
+<div class="custom-container warning"><p class="custom-container-title">WARNING</p>
+<p>Используйте только относительные пути для импорта чего-либо в typescript ваших компонентов или модулей хранилища Vuex. Не используйте «абсолютные» алиасы (в контексте дочернего проекта, данный импорт будет искать зависимость в директории @/... проекта, а не библиотеки):</p>
+</div>
+<div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> Icon <span class="token keyword">from</span> <span class="token string">'../Icon/Icon'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'ComponentName'</span><span class="token punctuation">,</span>
+
+  <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    Icon<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><div class="language-typescript ext-ts line-numbers-mode"><pre v-pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Module <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Types</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> IStore<span class="token punctuation">,</span> ILayout <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../../models/store'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> initialState<span class="token operator">:</span> ILayout <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> ModuleName<span class="token operator">:</span> Module<span class="token operator">&lt;</span>ILayout<span class="token punctuation">,</span> IStore<span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  namespaced<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+  state<span class="token operator">:</span> initialState<span class="token punctuation">,</span>
+
+  getters<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  actions<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  mutations<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> ModuleName<span class="token punctuation">;</span>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><p>В реальных проектах вам потребуется очень часто закрывать «самые дорогие требования» с помощью аккуратно подобранных подходящих готовых решений. В таких случаях логично будет создавать обертку над чужим модулем, предоставляющую всю необходимую кастомизацию.</p>
+<p>Так как мы используем глобальные стили собственной кастомизации модуля - невозможно будет защитить стили перекастомизации в SFC-обертке с помощью <code class="nowrap">scoped</code>:</p>
+<div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylus<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"~/src/stylus/_stylebase.styl"</span><span class="token punctuation">;</span></span>
+
+// Customization
+// ...
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="library-publishing" tabindex="-1"><a class="header-anchor" href="#library-publishing" aria-hidden="true">#</a> Library publishing</h2>
+<p>Зарегистрируйтесь на <span class="nowrap"><a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">npmjs.com<ExternalLinkIcon/></a></span> и подтвердите регистрацию (дождитесь письма на почту).</p>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>$ npm run build
+$ npm version patch
+$ npm publish
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="connecting-to-projects" tabindex="-1"><a class="header-anchor" href="#connecting-to-projects" aria-hidden="true">#</a> Connecting to projects</h2>
+<p>Вы можете либо использовать стартовый шаблон для новых проектов <span class="nowrap"><a href="https://github.com/ushliypakostnik/ui-library-2-test" target="_blank" rel="noopener noreferrer">ui-library-start<ExternalLinkIcon/></a></span>, тогда вам придется заменить библиотеку:</p>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>$ npm uninstall ui-library-starter-2 --save-dev
+$ npm install ui-library-starter-2-test --save-dev
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>Либо установить библиотеку как любой другой модуль в любой другой проект:</p>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>$ npm install ui-library-starter-2-test --save-dev
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div></template>

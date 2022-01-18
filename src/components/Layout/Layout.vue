@@ -15,7 +15,7 @@ import { defineComponent, computed } from 'vue';
 import { useStore } from '../../store';
 
 export default defineComponent({
-  name: 'Layout',
+  name: 'View',
 
   /*
   // Options API
@@ -34,7 +34,6 @@ export default defineComponent({
   // Composition API
   setup() {
     const store = useStore();
-    console.log('Library Layout store: ', store);
 
     let toggle;
     const isMenuOpen = computed(() => store.getters['layout/isMenuOpen']);

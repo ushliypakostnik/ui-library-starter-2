@@ -3,34 +3,69 @@ export const themeData = {
   "repo": "https://github.com/ushliypakostnik/ui-library-starter-2.git",
   "docsDir": "docs",
   "editLink": false,
+  "navbar": [
+    {
+      "text": "NPM",
+      "link": "https://www.npmjs.com/package/ui-library-starter-2"
+    }
+  ],
+  "sidebar": [
+    {
+      "text": "Intro",
+      "link": "/",
+      "collapsible": true,
+      "children": [
+        "/start.md",
+        "/structure.md",
+        "/links.md"
+      ]
+    },
+    {
+      "text": "Constants",
+      "collapsible": true,
+      "children": [
+        {
+          "text": "_stylebase.styl",
+          "link": "/constants/stylebase"
+        },
+        {
+          "text": "Colors",
+          "link": "/constants/colors"
+        },
+        {
+          "text": "Breakpoints",
+          "link": "/constants/breakpoints"
+        },
+        {
+          "text": "Typography",
+          "link": "/constants/typography"
+        },
+        {
+          "text": "Others",
+          "link": "/constants/others"
+        }
+      ]
+    },
+    {
+      "text": "Components",
+      "collapsible": true,
+      "children": [
+        {
+          "text": "Layout",
+          "link": "/components/layout"
+        }
+      ]
+    }
+  ],
   "locales": {
     "/": {
-      "nav": [
-        {
-          "text": "NPM",
-          "link": "https://www.npmjs.com/package/ui-library-starter-2"
-        }
-      ],
-      "sidebar": [
-        {
-          "title": "Intro",
-          "children": [
-            "/",
-            "start",
-            "structure",
-            "links"
-          ]
-        }
-      ],
       "selectLanguageName": "English"
     }
   },
-  "navbar": [],
   "logo": null,
   "darkMode": true,
   "selectLanguageText": "Languages",
   "selectLanguageAriaLabel": "Select language",
-  "sidebar": "auto",
   "sidebarDepth": 2,
   "editLinkText": "Edit this page",
   "lastUpdated": true,

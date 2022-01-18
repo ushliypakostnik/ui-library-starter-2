@@ -34,13 +34,61 @@ export const data = {
           "title": "Documentation config",
           "slug": "documentation-config",
           "children": []
+        },
+        {
+          "level": 3,
+          "title": "Connecting fonts",
+          "slug": "connecting-fonts",
+          "children": []
+        },
+        {
+          "level": 3,
+          "title": "Сleaning project",
+          "slug": "сleaning-project",
+          "children": []
+        },
+        {
+          "level": 3,
+          "title": "Style setting",
+          "slug": "style-setting",
+          "children": []
         }
       ]
+    },
+    {
+      "level": 2,
+      "title": "Adding a component",
+      "slug": "adding-a-component",
+      "children": []
+    },
+    {
+      "level": 2,
+      "title": "Using third party modules",
+      "slug": "using-third-party-modules",
+      "children": []
+    },
+    {
+      "level": 2,
+      "title": "Library publishing",
+      "slug": "library-publishing",
+      "children": []
+    },
+    {
+      "level": 2,
+      "title": "Connecting to projects",
+      "slug": "connecting-to-projects",
+      "children": []
     }
   ],
   "git": {
-    "updatedTime": null,
-    "contributors": []
+    "updatedTime": 1642520341000,
+    "contributors": [
+      {
+        "name": "ushliypakostnik",
+        "email": "levon.gambaryan@gmail.com",
+        "commits": 1
+      }
+    ]
   },
   "filePathRelative": "start.md"
 }

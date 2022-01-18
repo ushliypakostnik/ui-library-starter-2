@@ -5,10 +5,23 @@ export const data = {
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
-  "headers": [],
+  "headers": [
+    {
+      "level": 2,
+      "title": "Стартовый пример для быстрого создания переиспользуемых модулей-библиотек с состоянием, документацией и режимом разработки (на Vue3+TS/Vuex4/VuePress2)",
+      "slug": "стартовыи-пример-для-быстрого-создания-переиспользуемых-модулеи-библиотек-с-состоянием-документациеи-и-режимом-разработки-на-vue3-ts-vuex4-vuepress2",
+      "children": []
+    }
+  ],
   "git": {
-    "updatedTime": null,
-    "contributors": []
+    "updatedTime": 1642520341000,
+    "contributors": [
+      {
+        "name": "ushliypakostnik",
+        "email": "levon.gambaryan@gmail.com",
+        "commits": 1
+      }
+    ]
   },
   "filePathRelative": "README.md"
 }

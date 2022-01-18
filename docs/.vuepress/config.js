@@ -1,7 +1,5 @@
 module.exports = {
-  lang: 'en-US',
   title: 'UI Library Starter 2',
-  description: 'Vue Component UI Library Starter 2',
 
   theme: '@vuepress/theme-default',
   themeConfig: {
@@ -9,22 +7,56 @@ module.exports = {
     repo: 'https://github.com/ushliypakostnik/ui-library-starter-2.git',
     docsDir: 'docs',
     editLink: false,
-    locales: {
-      '/': {
-        nav: [{ text: 'NPM', link: 'https://www.npmjs.com/package/ui-library-starter-2' }],
-        sidebar: [
+    navbar: [
+      {
+        text: 'NPM',
+        link: 'https://www.npmjs.com/package/ui-library-starter-2',
+      },
+    ],
+    sidebar: [
+      {
+        text: 'Intro',
+        link: '/',
+        collapsible: true,
+        children: ['/start.md', '/structure.md', '/links.md'],
+      },
+      {
+        text: `Constants`,
+        collapsible: true,
+        children: [
           {
-            title: `Intro`,
-            // collapsable: false,
-            children: [
-              '/',
-              'start',
-              'structure',
-              'links',
-            ],
+            text: `_stylebase.styl`,
+            link: '/constants/stylebase',
+
+          },
+          {
+            text: `Colors`,
+            link: '/constants/colors',
+          },
+          {
+            text: `Breakpoints`,
+            link: '/constants/breakpoints',
+          },
+          {
+            text: `Typography`,
+            link: '/constants/typography',
+          },
+          {
+            text: `Others`,
+            link: '/constants/others',
           },
         ],
       },
-    },
+      {
+        text: `Components`,
+        collapsible: true,
+        children: [
+          {
+            text: `Layout`,
+            link: '/components/layout',
+          },
+        ],
+      },
+    ],
   },
 };

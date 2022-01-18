@@ -8,7 +8,7 @@
   "jsdelivr": "dist/ui-library-starter-2.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "rimraf ./src/static && cp -r ./docs/.vuepress/public ./src/static && vue-cli-service build --target lib --name ui-library-starter-2 src/main.ts",
+    "build": "vue-cli-service build --target lib --name ui-library-starter-2 src/main.ts",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "test:unit": "vue-cli-service test:unit",
@@ -50,6 +50,7 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "@vue/test-utils": "^2.0.0-0",
+    "@vuepress/plugin-register-components": "^2.0.0-beta.33",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.0.0",
