@@ -8,7 +8,9 @@
   "jsdelivr": "dist/ui-library-starter-2.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name ui-library-starter-2 src/main.ts",
+    "build": "rimraf ./src/static && cp -r ./docs/.vuepress/public ./src/static && vue-cli-service build --target lib --name ui-library-starter-2 src/main.ts",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
@@ -29,6 +31,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
+    "vuepress": "^2.0.0-beta.33",
     "vuex": "^4.0.0-0",
     "vuex-persistedstate": "^4.1.0"
   },

@@ -11,12 +11,14 @@
 </template>
 
 <script>
-import { defineComponent /*, computed */ } from 'vue';
-// import { useStore } from '../../store';
+import { defineComponent, computed } from 'vue';
+import { useStore } from '../../store';
 
 export default defineComponent({
   name: 'Layout',
 
+  /*
+  // Options API
   computed: {
     isMenuOpen() {
       return this.$store.getters['layout/isMenuOpen'];
@@ -27,9 +29,9 @@ export default defineComponent({
     toggle() {
       this.$store.dispatch('layout/setMenu', !this.isMenuOpen);
     },
-  },
+  }, */
 
-  /*
+  // Composition API
   setup() {
     const store = useStore();
     console.log('Library Layout store: ', store);
@@ -45,7 +47,7 @@ export default defineComponent({
       isMenuOpen,
       toggle,
     };
-  }, */
+  },
 });
 </script>
 

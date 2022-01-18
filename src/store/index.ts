@@ -21,8 +21,10 @@ export interface State {
   name: string;
 }
 
+const name = 'store';
+
 // define injection key
-export const key: InjectionKey<Store<State>> = Symbol();
+export const key: InjectionKey<Store<State>> = Symbol(name);
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function useStore() {
@@ -30,8 +32,6 @@ export function useStore() {
 }
 
 const debug: boolean = process.env.NODE_ENV !== 'production';
-
-const name = 'store';
 
 const store = createStore<State>({
   strict: debug,

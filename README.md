@@ -1,29 +1,33 @@
-# ui-library-starter-2
+# Vue Components UI Library Starter 2
 
-## Project setup
+[Package on NPM](https://www.npmjs.com/package/ui-library-starter-2)
+
+[Documentation](https://ui-library-starter.netlify.app/)
+
+![Colors](https://github.com/ushliypakostnik/ui-library-starter-2/blob/master/colors.jpg)
+
+### Project setup
 ```
-npm install
+$ npm install
 ```
 
-### Compiles and hot-reloads for development
+### Development documentation
 ```
-npm run serve
+$ npm run docs:dev
+```
+
+### Build documentation
+```
+$ npm run docs:build
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+$ npm run build
 ```
 
-### Run your unit tests
+### Publish to NPM
 ```
-npm run test:unit
+$ npm version patch
+$ npm publish
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

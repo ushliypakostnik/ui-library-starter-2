@@ -1,0 +1,31 @@
+{
+  "hash": "90f94d7d",
+  "browserHash": "759e0629",
+  "optimized": {
+    "vue": {
+      "file": "/home/levon/projects/github/ui-library-starter-2/docs/.vuepress/.cache/vue.js",
+      "src": "/home/levon/projects/github/ui-library-starter-2/node_modules/@vuepress/bundler-vite/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js",
+      "needsInterop": false
+    },
+    "vue-router": {
+      "file": "/home/levon/projects/github/ui-library-starter-2/docs/.vuepress/.cache/vue-router.js",
+      "src": "/home/levon/projects/github/ui-library-starter-2/node_modules/vue-router/dist/vue-router.esm-bundler.js",
+      "needsInterop": false
+    },
+    "@vueuse/core": {
+      "file": "/home/levon/projects/github/ui-library-starter-2/docs/.vuepress/.cache/@vueuse_core.js",
+      "src": "/home/levon/projects/github/ui-library-starter-2/node_modules/@vuepress/theme-default/node_modules/@vueuse/core/index.mjs",
+      "needsInterop": false
+    },
+    "nprogress": {
+      "file": "/home/levon/projects/github/ui-library-starter-2/docs/.vuepress/.cache/nprogress.js",
+      "src": "/home/levon/projects/github/ui-library-starter-2/node_modules/nprogress/nprogress.js",
+      "needsInterop": true
+    },
+    "@vuepress/shared": {
+      "file": "/home/levon/projects/github/ui-library-starter-2/docs/.vuepress/.cache/@vuepress_shared.js",
+      "src": "/home/levon/projects/github/ui-library-starter-2/node_modules/@vuepress/shared/lib/esm/index.js",
+      "needsInterop": false
+    }
+  }
+}
