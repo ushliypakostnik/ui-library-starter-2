@@ -23,8 +23,7 @@ const ComponentLibrary = {
 // ATTENTION! Set to true if you want
 // to develop a module (not documentation)
 // and false before publishing for use in projects
-// or develop documentation!
-const isDevelopmentModuleMode = true;
+const isDevelopmentModuleMode = false;
 if (isDevelopmentModuleMode) {
   console.log('Start development module!');
   createApp(Development).use(store, key).mount('#app');
