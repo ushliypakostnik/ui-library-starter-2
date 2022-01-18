@@ -39,8 +39,14 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": null,
-    "contributors": []
+    "updatedTime": 1642532026000,
+    "contributors": [
+      {
+        "name": "ushliypakostnik",
+        "email": "levon.gambaryan@gmail.com",
+        "commits": 1
+      }
+    ]
   },
   "filePathRelative": "components/layout.md"
 }

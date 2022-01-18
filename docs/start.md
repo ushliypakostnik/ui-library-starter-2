@@ -77,41 +77,37 @@ $font-weight = {
 
 Поместите папку с правильным шрифтом рядом с папкой <code class="nowrap">/Ubuntu</code> в <code class="nowrap">@/src/static/fonts/</code>.
 
-Пропишите правильные импорты и пути в файле препроцессора для типографики <code class="nowrap">~/src/stylus/utils/_typography.styl</code>:
-
-```stylus
-// Import fonts
-//////////////////////////////////////////////////////
-
-@font-face
-  font-family $font-family
-  src url("../../static/fonts/OpenSans/OpenSans-Regular.eot")
-  src local("OpenSans Regular"), local("OpenSans-Regular"),
-    url("../../static/fonts/OpenSans/OpenSans-Regular.eot?#iefix") format("embedded-opentype"),
-    url("../../static/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"),
-    url("../../static/fonts/OpenSans/OpenSans-Regular.woff") format("woff"),
-    url("../../static/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype")
-  font-weight $font-weight.regular
-  font-style normal
-
-@font-face
-  font-family $font-family
-  src url("../../static/fonts/OpenSans/OpenSans-Bold.eot")
-  src local("OpenSans Bold"), local("OpenSans-Bold"),
-    url("../../static/fonts/OpenSans/OpenSans-Bold.eot?#iefix") format("embedded-opentype"),
-    url("../../static/fonts/OpenSans/OpenSans-Bold.woff2") format("woff2"),
-    url("../../static/fonts/OpenSans/OpenSans-Bold.woff") format("woff"),
-    url("../../static/fonts/OpenSans/OpenSans-Bold.ttf") format("truetype")
-  font-weight $font-weight.bold
-  font-style normal
-```
-
-Поправтьте имя шрифта в таге <code>body</code> в секции стилей компонента для разработки <code class="nowrap">@/src/Development.vue</code>:
+Пропишите правильные пути импорта и имя шрифта в таге <code>body</code> в секции стилей компонента для разработки <code class="nowrap">@/src/Development.vue</code>:
 
 ```vue
 ...
 
 <style lang="stylus">
+// Import fonts
+//////////////////////////////////////////////////////
+
+@font-face
+  font-family $font-family
+  src url("../../static/fonts/Ubuntu/Ubuntu-Regular.eot")
+  src local("Ubuntu Regular"), local("Ubuntu-Regular"),
+    url("../../static/fonts/Ubuntu/Ubuntu-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../../static/fonts/Ubuntu/Ubuntu-Regular.woff2") format("woff2"),
+    url("../../static/fonts/Ubuntu/Ubuntu-Regular.woff") format("woff"),
+    url("../../static/fonts/Ubuntu/Ubuntu-Regular.ttf") format("truetype")
+  font-weight $font-weight.regular
+  font-style normal
+
+@font-face
+  font-family $font-family
+  src url("../../static/fonts/Ubuntu/Ubuntu-Bold.eot")
+  src local("Ubuntu Bold"), local("Ubuntu-Bold"),
+    url("../../static/fonts/Ubuntu/Ubuntu-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../../static/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"),
+    url("../../static/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"),
+    url("../../static/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype")
+  font-weight $font-weight.bold
+  font-style normal
+  
 :root
   scroll-behavior smooth
 
@@ -348,16 +344,32 @@ export default ModuleName;
 </style>
 ```
 
+## Use the sandbox (not documentation)
+
+Используйте специальный режим для разработки и тестирования модуля-библиотеки. Для того чтобы переключиться в него - выставите флаг <code>isDevelopmentModuleMode</code> в значение <code>true</code> главном файле проекта <code class="nowrap">@/src/main.ts</code>:
+
+```ts
+// ATTENTION! Set to true if you want
+// to develop a module (not documentation)
+// and false before publishing for use in projects
+const isDevelopmentModuleMode = true;
+if (isDevelopmentModuleMode) {
+  console.log('Start development module!');
+  createApp(Development).use(store, key).mount('#app');
+}
+```
+
 ## Library publishing
 
 Зарегистрируйтесь на <span class="nowrap">[npmjs.com](https://www.npmjs.com/)</span> и подтвердите регистрацию (дождитесь письма на почту).
+
+Перед публикацией не забудьте отключить режим разработки модуля.
 
 ```
 $ npm run build
 $ npm version patch
 $ npm publish
 ```
-
 
 ## Connecting to projects
 
@@ -374,4 +386,110 @@ $ npm install ui-library-starter-2-test --save-dev
 $ npm install ui-library-starter-2-test --save-dev
 ```
 
+Организация стилей дочерних проектов может или иметь подобную библиотеке структуру или любую другую (например, если вы внедряете бибилиотеку в старый проект). Единственное требование: первый импорт в основном файле - основного файла библиотеки. Второй - подключение шрифтов и стилизация <code class="nowrap">:root</code> и <code class="nowrap">body</code>.
 
+<code class="nowrap">@/src/stylus/\_stylebase.styl</code> проекта использующего библиотеку:
+
+```stylus
+// Import UI Library stylebase
+@import '~ui-library-starter-test/src/stylus/_stylebase.styl';
+
+// core
+@import "core/_base"; // normalize
+```
+
+<code class="nowrap">@/src/stylus/core/\_base.styl</code> проекта использующего библиотеку:
+
+```stylus
+// Import UI Library fonts
+
+@font-face {
+  font-family: $font-family;
+  src: url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Regular.eot');
+  src: local('Ubuntu Regular'), local('Ubuntu-Regular'),
+    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Regular.eot?#iefix') format('embedded-opentype'),
+    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Regular.woff2') format('woff2'),
+    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Regular.woff') format('woff'),
+    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: $font-weight.regular;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family;
+  src: url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Bold.eot');
+  src: local('Ubuntu Bold'), local('Ubuntu-Bold'),
+    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Bold.eot?#iefix') format('embedded-opentype'),
+    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Bold.woff2') format('woff2'),
+    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Bold.woff') format('woff'),
+    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Bold.ttf') format('truetype');
+  font-weight: $font-weight.bold;
+  font-style: bold;
+}
+
+// Base normalize
+
+:root
+  scroll-behavior smooth
+
+body
+  font-family $font-family, sans-serif
+  -moz-osx-font-smoothing grayscale
+  -webkit-font-smoothing antialiased
+  text-rendering: optimizeSpeed
+  color $colors.text
+  overflow-x hidden
+```
+
+Практически единственный повод что-то поменять в этом файле - крайне маловероятная ситуация - замена или добавление шрифта в гайдлайн. Предполагается что отредактировать пути шрифтов придется только один раз - при подключении библиотеки под определенный стиль.
+
+Подключите все это к главному шаблону <code class="nowrap">@/src/App.vue</code>:
+
+```vue
+<template>
+  <Layout>Test content of test poject!!!</Layout>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'App',
+});
+</script>
+
+<style lang="stylus">
+@import "~/src/stylus/_stylebase.styl";
+</style>
+```
+
+Исправьте имя библиотеки в импортах в точку входа <code class="nowrap">@/src/main.js</code> если вы брали готовый репо или подключите:
+
+```ts
+import { createApp } from 'vue';
+import App from './App.vue';
+
+import ComponentLibrary from 'ui-library-starter-2-test';
+import 'ui-library-starter-2-test/dist/ui-library-starter-2-test.css';
+
+createApp(App).use(ComponentLibrary).mount('#app');
+```
+
+Исправьте имя или добавьте команду <code class="nowrap">update</code> в <code class="nowrap">@/package.json</code>:
+
+```json
+{
+  "name": "ui-library-start-test",
+  "scripts": {
+    "update": "npm install ui-library-starter-2-test@latest"
+  },
+}
+```
+
+## Updating in projects
+
+Обновляйте библиотеку до последней версии в проектах:
+
+```
+$ npm run update
+```

@@ -69,6 +69,12 @@ export const data = {
     },
     {
       "level": 2,
+      "title": "Use the sandbox (not documentation)",
+      "slug": "use-the-sandbox-not-documentation",
+      "children": []
+    },
+    {
+      "level": 2,
       "title": "Library publishing",
       "slug": "library-publishing",
       "children": []
@@ -78,15 +84,21 @@ export const data = {
       "title": "Connecting to projects",
       "slug": "connecting-to-projects",
       "children": []
+    },
+    {
+      "level": 2,
+      "title": "Updating in projects",
+      "slug": "updating-in-projects",
+      "children": []
     }
   ],
   "git": {
-    "updatedTime": 1642520341000,
+    "updatedTime": 1642532026000,
     "contributors": [
       {
         "name": "ushliypakostnik",
         "email": "levon.gambaryan@gmail.com",
-        "commits": 1
+        "commits": 2
       }
     ]
   },

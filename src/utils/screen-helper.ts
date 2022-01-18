@@ -4,8 +4,8 @@
 import { DESIGN } from './constants';
 
 const ScreenHelper = (() => {
-  const TABLET: number = DESIGN.BREAKPOINTS.tablet;
-  const DESKTOP: number = DESIGN.BREAKPOINTS.desktop;
+  const TABLET = DESIGN.BREAKPOINTS.tablet;
+  const DESKTOP = DESIGN.BREAKPOINTS.desktop;
 
   const isMobile = () => {
     return window.matchMedia(`(max-width: ${TABLET - 1}px)`).matches;
