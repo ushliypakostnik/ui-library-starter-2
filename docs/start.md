@@ -392,7 +392,7 @@ $ npm install ui-library-starter-2-test --save-dev
 
 ```stylus
 // Import UI Library stylebase
-@import '~ui-library-starter-test/src/stylus/_stylebase.styl';
+@import '~ui-library-starter-2-test/src/stylus/_stylebase.styl';
 
 // core
 @import "core/_base"; // normalize
@@ -405,24 +405,24 @@ $ npm install ui-library-starter-2-test --save-dev
 
 @font-face {
   font-family: $font-family;
-  src: url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Regular.eot');
+  src: url('~ui-library-starter-2-test/src/static/fonts/Ubuntu/Ubuntu-Regular.eot');
   src: local('Ubuntu Regular'), local('Ubuntu-Regular'),
-    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Regular.eot?#iefix') format('embedded-opentype'),
-    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Regular.woff2') format('woff2'),
-    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Regular.woff') format('woff'),
-    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Regular.ttf') format('truetype');
+    url('~ui-library-starter-2-test/src/static/fonts/Ubuntu/Ubuntu-Regular.eot?#iefix') format('embedded-opentype'),
+    url('~ui-library-starter-2-test/src/static/fonts/Ubuntu/Ubuntu-Regular.woff2') format('woff2'),
+    url('~ui-library-starter-2-test/src/static/fonts/Ubuntu/Ubuntu-Regular.woff') format('woff'),
+    url('~ui-library-starter-2-test/src/static/fonts/Ubuntu/Ubuntu-Regular.ttf') format('truetype');
   font-weight: $font-weight.regular;
   font-style: normal;
 }
 
 @font-face {
   font-family: $font-family;
-  src: url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Bold.eot');
+  src: url('~ui-library-starter-2-test/src/static/fonts/Ubuntu/Ubuntu-Bold.eot');
   src: local('Ubuntu Bold'), local('Ubuntu-Bold'),
-    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Bold.eot?#iefix') format('embedded-opentype'),
-    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Bold.woff2') format('woff2'),
-    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Bold.woff') format('woff'),
-    url('~ui-library-starter/src/static/fonts/Ubuntu/Ubuntu-Bold.ttf') format('truetype');
+    url('~ui-library-starter-2-test/src/static/fonts/Ubuntu/Ubuntu-Bold.eot?#iefix') format('embedded-opentype'),
+    url('~ui-library-starter-2-test/src/static/fonts/Ubuntu/Ubuntu-Bold.woff2') format('woff2'),
+    url('~ui-library-starter-2-test/src/static/fonts/Ubuntu/Ubuntu-Bold.woff') format('woff'),
+    url('~ui-library-starter-2-test/src/static/fonts/Ubuntu/Ubuntu-Bold.ttf') format('truetype');
   font-weight: $font-weight.bold;
   font-style: bold;
 }
