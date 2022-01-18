@@ -15,7 +15,7 @@ import { defineComponent, computed } from 'vue';
 import { useStore } from '../../store';
 
 export default defineComponent({
-  name: 'View',
+  name: 'Layout',
 
   /*
   // Options API
