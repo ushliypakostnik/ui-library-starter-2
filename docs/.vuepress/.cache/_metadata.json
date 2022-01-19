@@ -1,10 +1,10 @@
 {
-  "hash": "98cc6b15",
-  "browserHash": "b61106d8",
+  "hash": "cbc7759e",
+  "browserHash": "01f34167",
   "optimized": {
     "vue": {
       "file": "/home/levon/projects/github/ui-library-starter-2/docs/.vuepress/.cache/vue.js",
-      "src": "/home/levon/projects/github/ui-library-starter-2/node_modules/@vuepress/bundler-vite/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js",
+      "src": "/home/levon/projects/github/ui-library-starter-2/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js",
       "needsInterop": false
     },
     "vue-router": {
@@ -14,7 +14,7 @@
     },
     "@vueuse/core": {
       "file": "/home/levon/projects/github/ui-library-starter-2/docs/.vuepress/.cache/@vueuse_core.js",
-      "src": "/home/levon/projects/github/ui-library-starter-2/node_modules/@vuepress/theme-default/node_modules/@vueuse/core/index.mjs",
+      "src": "/home/levon/projects/github/ui-library-starter-2/node_modules/@vueuse/core/index.mjs",
       "needsInterop": false
     },
     "nprogress": {

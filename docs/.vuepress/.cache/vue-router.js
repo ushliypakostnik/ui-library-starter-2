@@ -15,11 +15,11 @@ import {
   unref,
   watch,
   watchEffect
-} from "./chunk-NBCOGHIC.js";
+} from "./chunk-JLYU7R2I.js";
+import "./chunk-YV7C26G7.js";
 import {
-  __spreadValues,
   init_define_MZ_ZOOM_OPTIONS
-} from "./chunk-KYQ4NUOZ.js";
+} from "./chunk-FCVWRIDD.js";
 
 // dep:vue-router
 init_define_MZ_ZOOM_OPTIONS();
@@ -62,7 +62,7 @@ var ApiProxy = class {
       }
     }
     const localSettingsSaveId = `__vue-devtools-plugin-settings__${plugin.id}`;
-    let currentSettings = __spreadValues({}, defaultSettings);
+    let currentSettings = Object.assign({}, defaultSettings);
     try {
       const raw = localStorage.getItem(localSettingsSaveId);
       const data = JSON.parse(raw);
@@ -81,11 +81,13 @@ var ApiProxy = class {
         currentSettings = value;
       }
     };
-    hook.on(HOOK_PLUGIN_SETTINGS_SET, (pluginId, value) => {
-      if (pluginId === this.plugin.id) {
-        this.fallbacks.setSettings(value);
-      }
-    });
+    if (hook) {
+      hook.on(HOOK_PLUGIN_SETTINGS_SET, (pluginId, value) => {
+        if (pluginId === this.plugin.id) {
+          this.fallbacks.setSettings(value);
+        }
+      });
+    }
     this.proxiedOn = new Proxy({}, {
       get: (_target, prop) => {
         if (this.target) {

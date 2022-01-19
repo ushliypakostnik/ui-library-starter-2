@@ -1,6 +1,5 @@
 module.exports = {
   title: 'UI Library Starter 2',
-
   theme: '@vuepress/theme-default',
   themeConfig: {
     repoLabel: 'GitHub repo',
