@@ -29,18 +29,14 @@ $ npm install
   "name": "ui-library-starter-2-test",
   "description": "UI Library Starter 2 Demonstration",
   "version": "0.1.0",
-
   "main": "dist/ui-library-starter-2-test.umd.min.js",
   "unpkg": "dist/ui-library-starter-2-test.umd.min.js",
   "jsdelivr": "dist/ui-library-starter-2-test.umd.min.js",
-
   "scripts": {
-    "build": "rimraf ./src/static && cp -r ./docs/.vuepress/public ./src/static && vue-cli-service build --target lib --name ui-library-starter-2-test src/main.js"
+    "build": "vue-cli-service build --target lib --name ui-library-starter-2 src/main.ts",
   },
-
   "author": "Levon Gambaryan",
   "license": "MIT",
-
   "homepage": "",
   "repository": {
     "type": "git",
@@ -49,12 +45,11 @@ $ npm install
   "bugs": {
     "url": "https://github.com/ushliypakostnik/ui-library-starter-2-test/issues"
   },
-
   "keywords": []
 }
 ```
 
-Обратите внимание на имя проекта в конце длинной команды деплоя <code class="nowrap">build</code>!
+Обратите внимание на имя проекта в конце команды деплоя <code class="nowrap">build</code>!
 
 ### Documentation config
 

@@ -4,7 +4,7 @@
 
 [Package on NPM](https://www.npmjs.com/package/ui-library-starter-2)
 
-[Documentation](https://ui-library-starter-2.netlify.app/)
+[Documentation](https://ui-library-starter-2.netlify.app)
 
 ![Colors](https://github.com/ushliypakostnik/ui-library-starter-2/blob/master/colors.jpg)
 
