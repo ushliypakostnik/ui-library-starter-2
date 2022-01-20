@@ -1,50 +1,134 @@
 <template>
   <main role="main" class="layout" :class="{ 'layout--min': !isMenuOpen }">
     <aside class="layout__sidebar">
-      <button type="button" class="layout__toggle" @click="toggle">
-        Toggle
+      <transition name="fade">
+        <div v-if="isMenuOpen" class="layout__name">UI Library Starter 2</div>
+      </transition>
+
+      <button type="button" class="layout__toggle" @click="toggleLayout">
+        <span v-if="isMenuOpen">&lt;&lt;&lt;</span>
+        <span v-else>&gt;&gt;&gt;</span>
       </button>
     </aside>
 
-    <div class="layout__content"><slot /></div>
+    <div class="layout__content-wrapper">
+      <header role="header" class="layout__header">
+        <div class="layout__header-left">
+          <button
+            v-for="(style, index) in THEMES"
+            :key="`theme${index}`"
+            type="button"
+            class="layout__theme-switch"
+            @click="toggleTheme(THEMES[style])"
+            :disabled="theme === THEMES[style]"
+          >
+            {{ style }}
+          </button>
+        </div>
+
+        <div class="layout__header-right">
+          <button
+            type="button"
+            class="layout__theme-switch"
+            @click="toggleMode"
+          >
+            {{ mode === MODES.mode1 ? MODES.mode2 : MODES.mode1 }}
+          </button>
+
+          <LangSwitch class="layout__language-switch" />
+        </div>
+      </header>
+
+      <div class="layout__content">
+        <slot />
+      </div>
+    </div>
   </main>
 </template>
 
 <script>
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, onBeforeMount, watch } from 'vue';
 import { useStore } from '../../store';
+
+import { DESIGN, THEMES, MODES } from '../../utils/constants';
+
+import LangSwitch from './LangSwitch.vue';
 
 export default defineComponent({
   name: 'Layout',
 
-  /*
-  // Options API
-  computed: {
-    isMenuOpen() {
-      return this.$store.getters['layout/isMenuOpen'];
-    },
+  components: {
+    LangSwitch,
   },
 
-  methods: {
-    toggle() {
-      this.$store.dispatch('layout/setMenu', !this.isMenuOpen);
-    },
-  }, */
-
-  // Composition API
   setup() {
     const store = useStore();
 
-    let toggle;
+    let toggleLayout;
+    let toggleMode;
+    let toggleTheme;
+    let setThemeOrMode;
     const isMenuOpen = computed(() => store.getters['layout/isMenuOpen']);
+    const theme = computed(() => store.getters['layout/theme']);
+    const mode = computed(() => store.getters['layout/mode']);
 
-    toggle = () => {
-      store.dispatch('layout/setMenu', !isMenuOpen.value);
+    toggleLayout = () => {
+      store.dispatch('layout/setLayout', {
+        field: 'isMenuOpen',
+        value: !isMenuOpen.value,
+      });
     };
 
+    toggleMode = () => {
+      store.dispatch('layout/setLayout', {
+        field: 'mode',
+        value: mode.value === MODES.mode1 ? MODES.mode2 : MODES.mode1,
+      });
+    };
+
+    toggleTheme = (theme) => {
+      store.dispatch('layout/setLayout', {
+        field: 'theme',
+        value: theme,
+      });
+    };
+
+    watch(
+      () => store.getters['layout/mode'],
+      () => {
+        setThemeOrMode();
+      },
+    );
+
+    watch(
+      () => store.getters['layout/theme'],
+      () => {
+        setThemeOrMode();
+      },
+    );
+
+    setThemeOrMode = () => {
+      for (const color in DESIGN.THEMES[theme.value][mode.value]) {
+        document.documentElement.style.setProperty(
+          `--${color}`,
+          DESIGN.THEMES[theme.value][mode.value][color],
+        );
+      }
+    };
+
+    onBeforeMount(() => {
+      setThemeOrMode();
+    });
+
     return {
+      THEMES,
+      MODES,
       isMenuOpen,
-      toggle,
+      mode,
+      theme,
+      toggleLayout,
+      toggleTheme,
+      toggleMode,
     };
   },
 });
@@ -83,8 +167,10 @@ $name = '.layout'
     top 0
     bottom 0
     padding: 60px 20px 40px
-    background $colors.primary
+    background $colors.sea
+    background var(--sea)
 
+  /*
   &__menu
     list-style none
 
@@ -92,19 +178,55 @@ $name = '.layout'
     color $colors.stone
     margin-bottom: 20px
     $text("maria")
+
     a
       text-decoration none
+
       &:hover
         text-decoration underline
-
+  */
   &__content
+    flex-grow 1
     width 100%
-    min-height 100vh
-    background $colors.sky
+    height 100%
+    background $colors.content
+    background var(--content)
+    color $colors.text
+    color var(--text)
     padding 20px
+
+    &-wrapper
+      display flex
+      flex-direction column
+      width 100%
+      min-height 100vh
 
   &__toggle
     position absolute
     right 20px
     top 20px
+
+  &__header
+    display flex
+    justify-content space-between
+    padding 20px
+    background $colors.header
+    background var(--header)
+
+    button + button
+      margin-left 20px
+
+    &-right
+      display flex
+
+  &__language-switch
+    margin-left 20px
+
+  &__name
+    position absolute
+    left 20px
+    top 20px
+    white-space nowrap
+    color $colors.stone
+    $text("maria")
 </style>

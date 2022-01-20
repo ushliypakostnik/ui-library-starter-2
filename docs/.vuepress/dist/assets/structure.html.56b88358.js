@@ -1,4 +1,4 @@
-import{c as n}from"./app.a818744d.js";import{_ as s}from"./plugin-vue_export-helper.21dcd24c.js";const a={},e=n(`<h1 id="structure" tabindex="-1"><a class="header-anchor" href="#structure" aria-hidden="true">#</a> Structure</h1><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>.
+import{c as n}from"./app.570e79e9.js";import{_ as s}from"./plugin-vue_export-helper.21dcd24c.js";const a={},e=n(`<h1 id="structure" tabindex="-1"><a class="header-anchor" href="#structure" aria-hidden="true">#</a> Structure</h1><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>.
 \u251C\u2500 docs/ // documentation folder
 \u2502  \u251C\u2500\u2500 .vuepress/ // VuePress2
 \u2502  \u2502   \u251C\u2500 styles/ // customization of documentation

@@ -39,6 +39,15 @@ a
 table
   width 100%
 
+// For example design - remove this!
+button
+  cursor pointer
+  padding 4px 8px
+
+  &:disabled,
+  &[disabled]
+    cursor default
+
 
 // CSS Scrollbar
 //////////////////////////////////////////////////////
@@ -53,7 +62,7 @@ table
 
 // Handle
 ::-webkit-scrollbar-thumb
-  background $colors.primary
+  background $colors.cat
 
 
 // Customize Placeholder

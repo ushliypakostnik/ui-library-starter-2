@@ -1,10 +1,15 @@
 import { Module } from 'vuex';
 
 // Types
-import { IStore, ILayout } from '../../models/store';
+import { IStore, ILayout, Tlanguage, ILayoutPayload } from '../../models/store';
+
+import { THEMES, MODES } from '../../utils/constants';
 
 const initialState: ILayout = {
+  language: null,
   isMenuOpen: true,
+  theme: THEMES.theme1,
+  mode: MODES.mode1,
 };
 
 const Layout: Module<ILayout, IStore> = {
@@ -13,18 +18,30 @@ const Layout: Module<ILayout, IStore> = {
   state: initialState,
 
   getters: {
+    language: (state: ILayout) => state.language,
     isMenuOpen: (state: ILayout) => state.isMenuOpen,
+    theme: (state: ILayout) => state.theme,
+    mode: (state: ILayout) => state.mode,
   },
 
   actions: {
-    setMenu: ({ commit }, isMenuOpen: boolean): void => {
-      commit('setMenu', isMenuOpen);
+    changeLanguage: ({ commit }, language: Tlanguage): void => {
+      commit('changeLanguage', language);
+    },
+
+    setLayout: ({ commit }, payload: ILayoutPayload): void => {
+      commit('setLayout', payload);
     },
   },
 
   mutations: {
-    setMenu: (state: ILayout, isMenuOpen: boolean): void => {
-      state.isMenuOpen = isMenuOpen;
+    changeLanguage: (state: ILayout, language: Tlanguage): void => {
+      state.language = language;
+    },
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    setLayout: (state: any, payload: ILayoutPayload): void => {
+      state[payload.field] = payload.value;
     },
   },
 };

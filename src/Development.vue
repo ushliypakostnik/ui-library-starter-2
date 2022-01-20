@@ -1,17 +1,21 @@
 <template>
-  <Layout>Test content!</Layout>
+  <Layout>
+    <TestComponent />
+  </Layout>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
 import Layout from '@/components/Layout/Layout.vue';
+import TestComponent from '@/components/TestComponent/TestComponent.vue';
 
 export default defineComponent({
   name: 'Development',
 
   components: {
     Layout,
+    TestComponent,
   },
 });
 </script>

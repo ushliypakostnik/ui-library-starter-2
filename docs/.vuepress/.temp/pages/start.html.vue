@@ -13,18 +13,14 @@
   <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"ui-library-starter-2-test"</span><span class="token punctuation">,</span>
   <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"UI Library Starter 2 Demonstration"</span><span class="token punctuation">,</span>
   <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.1.0"</span><span class="token punctuation">,</span>
-
   <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"dist/ui-library-starter-2-test.umd.min.js"</span><span class="token punctuation">,</span>
   <span class="token property">"unpkg"</span><span class="token operator">:</span> <span class="token string">"dist/ui-library-starter-2-test.umd.min.js"</span><span class="token punctuation">,</span>
   <span class="token property">"jsdelivr"</span><span class="token operator">:</span> <span class="token string">"dist/ui-library-starter-2-test.umd.min.js"</span><span class="token punctuation">,</span>
-
   <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"rimraf ./src/static &amp;&amp; cp -r ./docs/.vuepress/public ./src/static &amp;&amp; vue-cli-service build --target lib --name ui-library-starter-2-test src/main.js"</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"vue-cli-service build --target lib --name ui-library-starter-2 src/main.ts"</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-
   <span class="token property">"author"</span><span class="token operator">:</span> <span class="token string">"Levon Gambaryan"</span><span class="token punctuation">,</span>
   <span class="token property">"license"</span><span class="token operator">:</span> <span class="token string">"MIT"</span><span class="token punctuation">,</span>
-
   <span class="token property">"homepage"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
   <span class="token property">"repository"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"git"</span><span class="token punctuation">,</span>
@@ -33,10 +29,9 @@
   <span class="token property">"bugs"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"https://github.com/ushliypakostnik/ui-library-starter-2-test/issues"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-
   <span class="token property">"keywords"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><p>Обратите внимание на имя проекта в конце длинной команды деплоя <code class="nowrap">build</code>!</p>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>Обратите внимание на имя проекта в конце команды деплоя <code class="nowrap">build</code>!</p>
 <h3 id="documentation-config" tabindex="-1"><a class="header-anchor" href="#documentation-config" aria-hidden="true">#</a> Documentation config</h3>
 <p>Перейдите к документации на VuePress и сконфигурируйте ее под себя <code class="nowrap">@/docs/.vuepress/config.js</code>:</p>
 <h3 id="connecting-fonts" tabindex="-1"><a class="header-anchor" href="#connecting-fonts" aria-hidden="true">#</a> Connecting fonts</h3>
