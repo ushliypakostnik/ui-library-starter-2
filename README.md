@@ -1,6 +1,6 @@
 # Vue Components UI Library Starter 2
 
-Стартовый пример для быстрого создания переиспользуемых модулей-библиотек с состоянием, документацией и режимом разработки (на Vue3+TS/Vuex4/VuePress2)
+Стартовый пример для быстрого создания переиспользуемых модулей-библиотек с состоянием, темезацией, локализацией, документацией и режимом разработки (на Vue3+TS/Vuex4/VuePress2/i18n)
 
 [Package on NPM](https://www.npmjs.com/package/ui-library-starter-2)
 
@@ -21,6 +21,21 @@ $ npm run docs:dev
 ### Build documentation
 ```
 $ npm run docs:build
+```
+
+## Use the sandbox (not documentation)
+
+Используйте специальный режим для разработки и тестирования модуля-библиотеки. Для того чтобы переключиться в него - выставите флаг ```isDevelopmentModuleMode``` в значение ```true``` главном файле проекта @/src/main.ts:
+
+```ts
+// ATTENTION! Set to true if you want
+// to develop a module (not documentation)
+// and false before publishing for use in projects
+const isDevelopmentModuleMode = true;
+if (isDevelopmentModuleMode) {
+  console.log('Start development module!');
+  createApp(Development).use(store, key).mount('#app');
+}
 ```
 
 ### Compiles and minifies for production
