@@ -2,16 +2,21 @@ import { App } from 'vue';
 import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n';
 import store, { key } from './store';
-import Development from './Development.vue';
+import { createRouter, createWebHistory } from 'vue-router';
 
 import * as components from './components';
+
+import Development from './Development.vue';
+import TestComponent from './components/TestComponent/TestComponent.vue';
 
 // Constants
 import { LANGUAGES, MESSAGES } from '@/utils/constants';
 
 const i18n = createI18n({
   legacy: true,
-  locale: store.getters['layout/language'] ? store.getters['layout/language'] : LANGUAGES[0].name,
+  locale: store.getters['layout/language']
+    ? store.getters['layout/language']
+    : LANGUAGES[0].name,
   fallbackLocale: LANGUAGES[0].name,
   messages: MESSAGES,
 });
@@ -37,10 +42,40 @@ const ComponentLibrary = {
 // ATTENTION! Set to true if you want
 // to develop a module (not documentation)
 // and false before publishing for use in projects
-const isDevelopmentModuleMode = false;
+const isDevelopmentModuleMode = true;
 if (isDevelopmentModuleMode) {
   console.log('Start development module!');
-  createApp(Development).use(i18n).use(store, key).mount('#app');
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const routes: any = [
+    {
+      path: '/',
+      name: 'TestComponent',
+      component: TestComponent,
+    },
+    {
+      path: '/route/:id',
+      name: 'TestRoute',
+      component: () =>
+        import(
+          /* webpackChunkName: "TestRoute" */ './components/TestRoute/TestRoute.vue'
+        ),
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'NotFound',
+      component: () =>
+        import(
+          /* webpackChunkName: "NotFound" */ './components/NotFound/NotFound.vue'
+        ),
+    },
+  ];
+
+  const router = createRouter({
+    history: createWebHistory(process.env.BASE_URL),
+    routes,
+  });
+
+  createApp(Development).use(i18n).use(store, key).use(router).mount('#app');
 }
 
 export default ComponentLibrary;

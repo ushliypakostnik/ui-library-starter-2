@@ -34,10 +34,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
 
-    const { t } = useI18n({
-      inheritLocale: true,
-      useScope: 'global',
-    });
+    const { t } = useI18n();
 
     let getColorValueByName;
     const theme = computed(() => store.getters['layout/theme']);

@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <TestComponent />
+    <router-view />
   </Layout>
 </template>
 
@@ -8,14 +8,12 @@
 import { defineComponent } from 'vue';
 
 import Layout from '@/components/Layout/Layout.vue';
-import TestComponent from '@/components/TestComponent/TestComponent.vue';
 
 export default defineComponent({
   name: 'Development',
 
   components: {
     Layout,
-    TestComponent,
   },
 });
 </script>

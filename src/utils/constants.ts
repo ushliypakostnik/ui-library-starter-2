@@ -109,11 +109,13 @@ export const MESSAGES: TMessages = {
   en: {
     layout: {
       colors: 'Colors',
+      route: 'Test route',
     },
   },
   ru: {
     layout: {
       colors: 'Цвета',
+      route: 'Тестовый роут',
     },
   },
 };

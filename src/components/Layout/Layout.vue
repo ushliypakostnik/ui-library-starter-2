@@ -2,7 +2,13 @@
   <main role="main" class="layout" :class="{ 'layout--min': !isMenuOpen }">
     <aside class="layout__sidebar">
       <transition name="fade">
-        <div v-if="isMenuOpen" class="layout__name">UI Library Starter 2</div>
+        <div v-if="isMenuOpen">
+          <router-link to="/" class="layout__name"
+            >UI Library Starter 2</router-link
+          >
+
+          <Menu />
+        </div>
       </transition>
 
       <button type="button" class="layout__toggle" @click="toggleLayout">
@@ -53,12 +59,14 @@ import { useStore } from '../../store';
 import { DESIGN, THEMES, MODES } from '../../utils/constants';
 
 import LangSwitch from './LangSwitch.vue';
+import Menu from '../Menu';
 
 export default defineComponent({
   name: 'Layout',
 
   components: {
     LangSwitch,
+    Menu,
   },
 
   setup() {
@@ -166,25 +174,10 @@ $name = '.layout'
     left 0
     top 0
     bottom 0
-    padding: 60px 20px 40px
+    padding: 100px 20px 40px
     background $colors.sea
     background var(--sea)
 
-  /*
-  &__menu
-    list-style none
-
-  &__menu-item
-    color $colors.stone
-    margin-bottom: 20px
-    $text("maria")
-
-    a
-      text-decoration none
-
-      &:hover
-        text-decoration underline
-  */
   &__content
     flex-grow 1
     width 100%
@@ -223,10 +216,11 @@ $name = '.layout'
     margin-left 20px
 
   &__name
+    text-decoration none
     position absolute
     left 20px
     top 20px
     white-space nowrap
-    color $colors.stone
+    color $colors.cat
     $text("maria")
 </style>
