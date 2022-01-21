@@ -4,14 +4,17 @@ import { createI18n } from 'vue-i18n';
 import store, { key } from './store';
 import { createRouter, createWebHistory } from 'vue-router';
 
+// UI Components
 import * as components from './components';
 
+// Dev and test components
 import Development from './Development.vue';
 import TestComponent from './components/TestComponent/TestComponent.vue';
 
 // Constants
 import { LANGUAGES, MESSAGES } from '@/utils/constants';
 
+// Localization
 const i18n = createI18n({
   legacy: true,
   locale: store.getters['layout/language']
@@ -21,6 +24,7 @@ const i18n = createI18n({
   messages: MESSAGES,
 });
 
+// UI Components library with store and localization
 const ComponentLibrary = {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   install(app: App) {
@@ -45,6 +49,7 @@ const ComponentLibrary = {
 const isDevelopmentModuleMode = false;
 if (isDevelopmentModuleMode) {
   console.log('Start development module!');
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const routes: any = [
     {
