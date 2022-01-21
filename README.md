@@ -34,7 +34,7 @@ $ npm run docs:build
 const isDevelopmentModuleMode = true;
 if (isDevelopmentModuleMode) {
   console.log('Start development module!');
-  createApp(Development).use(store, key).mount('#app');
+  ...
 }
 ```
 

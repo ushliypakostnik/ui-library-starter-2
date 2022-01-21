@@ -4,8 +4,6 @@
 
 Скачайте код <span class="nowrap">[ui-library-starter-2](https://github.com/ushliypakostnik/ui-library-starter-2)</span> и оформите его в отдельный репозиторий. При выборе имени для нового репозитория необходимо сразу убедиться в том, что оно не занято на <span class="nowrap">[npmjs.com](https://www.npmjs.com/)</span>. Пусть это будет <code class="nowrap">ui-library-starter-2-test</code>.
 
-Или, в случае, если вы не планируете менять стиль проекта под свои собственные гайды, но, собираетесь поиграться или даже внести вклад в его развитие, например, предложив еще какие-то важные компоненты - сделайте форк, конечно же. Дальнейшие инструкции относятся к первому случаю - пилим свежую либу с кастомным стилем под конкретные задачи - в этом случае многие могут захотеть удалить эту документацию и почти все компоненты, чтобы не выполнять лишнюю кастомизацию.
-
 ```
 $ npm install
 ```
@@ -78,40 +76,35 @@ $font-weight = {
 ...
 
 <style lang="stylus">
-// Import fonts
-//////////////////////////////////////////////////////
+@import "./stylus/_stylebase.styl";
 
-@font-face
-  font-family $font-family
-  src url("../../static/fonts/Ubuntu/Ubuntu-Regular.eot")
-  src local("Ubuntu Regular"), local("Ubuntu-Regular"),
-    url("../../static/fonts/Ubuntu/Ubuntu-Regular.eot?#iefix") format("embedded-opentype"),
-    url("../../static/fonts/Ubuntu/Ubuntu-Regular.woff2") format("woff2"),
-    url("../../static/fonts/Ubuntu/Ubuntu-Regular.woff") format("woff"),
-    url("../../static/fonts/Ubuntu/Ubuntu-Regular.ttf") format("truetype")
-  font-weight $font-weight.regular
-  font-style normal
+// Import UI Library fonts
 
-@font-face
-  font-family $font-family
-  src url("../../static/fonts/Ubuntu/Ubuntu-Bold.eot")
-  src local("Ubuntu Bold"), local("Ubuntu-Bold"),
-    url("../../static/fonts/Ubuntu/Ubuntu-Bold.eot?#iefix") format("embedded-opentype"),
-    url("../../static/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"),
-    url("../../static/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"),
-    url("../../static/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype")
-  font-weight $font-weight.bold
-  font-style normal
-  
-:root
-  scroll-behavior smooth
+@font-face {
+  font-family: $font-family;
+  src: url('./static/fonts/Ubuntu/Ubuntu-Regular.eot');
+  src: local('Ubuntu Regular'), local('Ubuntu-Regular'),
+    url('./static/fonts/Ubuntu/Ubuntu-Regular.eot?#iefix') format('embedded-opentype'),
+    url('./static/fonts/Ubuntu/Ubuntu-Regular.woff2') format('woff2'),
+    url('./static/fonts/Ubuntu/Ubuntu-Regular.woff') format('woff'),
+    url('./static/fonts/Ubuntu/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: $font-weight.regular;
+  font-style: normal;
+}
 
-body
-  font-family "Open Sans", sans-serif
-  -moz-osx-font-smoothing grayscale
-  -webkit-font-smoothing antialiased
-  text-rendering: optimizeSpeed
-  overflow-x hidden
+@font-face {
+  font-family: $font-family;
+  src: url('./static/fonts/Ubuntu/Ubuntu-Bold.eot');
+  src: local('Ubuntu Bold'), local('Ubuntu-Bold'),
+    url('./static/fonts/Ubuntu/Ubuntu-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./static/fonts/Ubuntu/Ubuntu-Bold.woff2') format('woff2'),
+    url('./static/fonts/Ubuntu/Ubuntu-Bold.woff') format('woff'),
+    url('./static/fonts/Ubuntu/Ubuntu-Bold.ttf') format('truetype');
+  font-weight: $font-weight.bold;
+  font-style: bold;
+}
+
+...
 </style>
 
 ```
@@ -252,8 +245,6 @@ This is new custom component.
 ...
 ```
 
-И далее - рендер-тест и исходный код по аналогии с другими файлами.
-
 Добавьте компонент в конфигурацию VuePress <code class="nowrap">@/docs/.vuepress/config.js</code>:
 
 ```js
@@ -350,7 +341,7 @@ export default ModuleName;
 const isDevelopmentModuleMode = true;
 if (isDevelopmentModuleMode) {
   console.log('Start development module!');
-  createApp(Development).use(store, key).mount('#app');
+  ...
 }
 ```
 
@@ -368,7 +359,7 @@ $ npm publish
 
 ## Connecting to projects
 
-Вы можете либо использовать стартовый шаблон для новых проектов <span class="nowrap">[ui-library-start](https://github.com/ushliypakostnik/ui-library-2-test)</span>, тогда вам придется заменить библиотеку:
+Вы можете либо использовать стартовый шаблон для новых проектов <span class="nowrap">[ui-library-2-test](https://github.com/ushliypakostnik/ui-library-2-test)</span>, тогда вам придется заменить библиотеку:
 
 ```
 $ npm uninstall ui-library-starter-2 --save-dev
@@ -441,17 +432,7 @@ body
 Подключите все это к главному шаблону <code class="nowrap">@/src/App.vue</code>:
 
 ```vue
-<template>
-  <Layout>Test content of test poject!!!</Layout>
-</template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'App',
-});
-</script>
+...
 
 <style lang="stylus">
 @import "~/src/stylus/_stylebase.styl";
@@ -467,7 +448,7 @@ import App from './App.vue';
 import ComponentLibrary from 'ui-library-starter-2-test';
 import 'ui-library-starter-2-test/dist/ui-library-starter-2-test.css';
 
-createApp(App).use(ComponentLibrary).mount('#app');
+...
 ```
 
 Исправьте имя или добавьте команду <code class="nowrap">update</code> в <code class="nowrap">@/package.json</code>:

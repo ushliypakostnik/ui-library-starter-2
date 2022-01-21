@@ -10,7 +10,10 @@
 <span class="token comment">// core</span>
 <span class="token atrule-declaration"><span class="token atrule">@import</span> <span class="token string">"core/_base"</span><span class="token punctuation">;</span> <span class="token comment">// normalize</span></span>
 <span class="token atrule-declaration"><span class="token atrule">@import</span> <span class="token string">"core/_animations"</span><span class="token punctuation">;</span></span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>Теперь можно использовать всю эту кухню на компонентах:</p>
+
+<span class="token comment">// libs</span>
+<span class="token comment">// ...</span>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>Теперь можно использовать всю эту кухню на компонентах:</p>
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylus<span class="token punctuation">"</span></span> <span class="token attr-name">scoped</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
 <span class="token atrule"><span class="token rule">@import</span> <span class="token string">"~/src/stylus/_stylebase.styl"</span><span class="token punctuation">;</span></span>
 
