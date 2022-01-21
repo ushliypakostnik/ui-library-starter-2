@@ -42,7 +42,7 @@ const ComponentLibrary = {
 // ATTENTION! Set to true if you want
 // to develop a module (not documentation)
 // and false before publishing for use in projects
-const isDevelopmentModuleMode = true;
+const isDevelopmentModuleMode = false;
 if (isDevelopmentModuleMode) {
   console.log('Start development module!');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

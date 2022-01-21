@@ -7,7 +7,9 @@
             >UI Library Starter 2</router-link
           >
 
-          <Menu />
+          <slot name="menu">
+            <Menu />
+          </slot>
         </div>
       </transition>
 
