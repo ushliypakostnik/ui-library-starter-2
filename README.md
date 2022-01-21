@@ -23,7 +23,7 @@ $ npm run docs:dev
 $ npm run docs:build
 ```
 
-## Use the sandbox (not documentation)
+### Use the sandbox (not documentation)
 
 Используйте специальный режим для разработки и тестирования модуля-библиотеки. Для того чтобы переключиться в него - выставите флаг ```isDevelopmentModuleMode``` в значение ```true``` главном файле проекта @/src/main.ts:
 
