@@ -16,9 +16,9 @@
 
 [Documentation](https://ui-library-starter-2.netlify.app)
 
-[Пример использующего модуль проекта - репо:](https://github.com/ushliypakostnik/ui-library-2-test)
+[Пример использующего модуль проекта - репо](https://github.com/ushliypakostnik/ui-library-2-test)
 
-[Пример использующего модуль проекта - демостенд:](https://ui-library-2-test.vercel.app/)
+[Пример использующего модуль проекта - демостенд](https://ui-library-2-test.vercel.app/)
 
 ![Colors](https://github.com/ushliypakostnik/ui-library-starter-2/blob/master/themes.jpg)
 
