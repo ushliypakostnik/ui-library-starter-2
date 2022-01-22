@@ -1,4 +1,4 @@
-import{c as s}from"./app.570e79e9.js";import{_ as n}from"./plugin-vue_export-helper.21dcd24c.js";const a={},p=s(`<h1 id="others" tabindex="-1"><a class="header-anchor" href="#others" aria-hidden="true">#</a> Others</h1><p><code class="nowrap">~/src/stylus/utils/_variables.styl</code></p><div class="language-stylus ext-styl line-numbers-mode"><pre class="language-stylus"><code><span class="token comment">// Others from guide</span>
+import{c as s}from"./app.3da3a17b.js";import{_ as n}from"./plugin-vue_export-helper.21dcd24c.js";const a={},p=s(`<h1 id="others" tabindex="-1"><a class="header-anchor" href="#others" aria-hidden="true">#</a> Others</h1><p><code class="nowrap">~/src/stylus/utils/_variables.styl</code></p><div class="language-stylus ext-styl line-numbers-mode"><pre class="language-stylus"><code><span class="token comment">// Others from guide</span>
 <span class="token comment">//////////////////////////////////////////////////////</span>
 
 <span class="token variable-declaration"><span class="token variable">$border-radiuses</span> <span class="token operator">=</span> <span class="token punctuation">{</span>

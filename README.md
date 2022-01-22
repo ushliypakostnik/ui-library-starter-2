@@ -6,7 +6,11 @@
 
 [Documentation](https://ui-library-starter-2.netlify.app)
 
-![Colors](https://github.com/ushliypakostnik/ui-library-starter-2/blob/master/colors.jpg)
+[Пример использующего модуль проекта - репо:](https://github.com/ushliypakostnik/ui-library-2-test)
+
+[Пример использующего модуль проекта - демостенд:](https://ui-library-2-test.vercel.app/)
+
+![Colors](https://github.com/ushliypakostnik/ui-library-starter-2/blob/master/themes.jpg)
 
 ### Project setup
 ```
@@ -36,6 +40,10 @@ if (isDevelopmentModuleMode) {
   console.log('Start development module!');
   ...
 }
+```
+
+```
+$ npm run serve
 ```
 
 ### Compiles and minifies for production

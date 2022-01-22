@@ -60,7 +60,7 @@
 ├─ .gitignore // git ignore
 ├─ .prettierrc // prettier configuration
 ├─ babel.config.js // babel configuration
-├─ colors.jpg // image for README
+├─ themes.jpg // image for README
 ├─ jest.config.js // jest configuration
 ├─ package.json // project configuration
 ├─ README.md
