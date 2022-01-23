@@ -23,7 +23,6 @@ $colors = {
 $colors["text"] = $colors.sky
 $colors["header"] = $colors.stone
 $colors["content"] = $colors.rain
-$colors["placeholder"] = rgba($colors.sea, $opacites.pop)
 ```
 
 В любом месте кода препроцессора или секции стилей SFC (при условии импорта стилевой базы) библиотеки или дочерних проектов вы можете передавать правильные цвета:
