@@ -34,7 +34,7 @@ $colors["content"] = $colors.rain
 
 ## Themezation
 
-Переменные препроцессора предоставляют атомы основной цветовой темы. Но вы можете добавлять другие темы содержащие дневной и ночной режим в javascript, в файле <code class="nowrap">@/src/utils/сonstants.ts</code>:
+Переменные препроцессора предоставляют атомы основной цветовой темы. Но вы можете добавлять другие темы содержащие дневной и ночной режим в TypeScript, в файле <code class="nowrap">@/src/utils/сonstants.ts</code>:
 
 ```ts
 export const THEMES: TConfig = {
